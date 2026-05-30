@@ -31,6 +31,16 @@ export default {
         'hero-radial':
           'radial-gradient(1200px 500px at 50% 0%, rgba(37,99,235,.18), rgba(255,255,255,0) 60%)',
       },
+      keyframes: {
+        'plane-fly': {
+          '0%': { transform: 'translateX(-100%) translateY(0) rotate(12deg)' },
+          '50%': { transform: 'translateX(50vw) translateY(-20px) rotate(10deg)' },
+          '100%': { transform: 'translateX(100vw) translateY(0) rotate(12deg)' },
+        }
+      },
+      animation: {
+        'plane-fly': 'plane-fly 15s linear infinite',
+      }
     },
   },
   plugins: [],

@@ -2,7 +2,7 @@ import { MessageCircle } from 'lucide-react'
 import { company } from '../data/content'
 
 export default function WhatsAppFab() {
-  const href = `https://wa.me/${company.phone.replace(/[^\d]/g, '')}?text=${encodeURIComponent(
+  const href = `https://wa.me/${company.phones[0].replace(/[^\d]/g, '')}?text=${encodeURIComponent(
     'Hi! I want to enquire about travel booking and packages.',
   )}`
 

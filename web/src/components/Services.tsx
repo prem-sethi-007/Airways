@@ -1,92 +1,111 @@
-import { Briefcase, Building2, Plane, ShieldCheck, Stamp, Hotel } from 'lucide-react'
-import SectionHeading from './SectionHeading'
+import { motion } from 'framer-motion'
+import { Plane, Hotel, ShieldCheck, Calendar, FileText, TrainFront, Coins, ArrowRight, ArrowUpRight, Settings } from 'lucide-react'
 import { services } from '../data/content'
+import { cn } from '../lib/cn'
+import { Link } from 'react-router-dom'
 
-const icons = [Plane, Stamp, Briefcase, Hotel, Building2, ShieldCheck] as const
+const serviceIcons = [Plane, Hotel, ShieldCheck, Calendar, FileText, TrainFront, Coins]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.2, 0.8, 0.2, 1]
+    }
+  }
+}
 
 export default function Services() {
   return (
-    <section id="services" className="section">
-      <div className="container">
-        <SectionHeading
-          eyebrow="What we do"
-          title="End‑to‑end travel services"
-          subtitle="From flight ticketing to corporate travel, we manage it all."
-        />
+    <section id="services" className="section relative overflow-hidden py-32 bg-[#F0F4F8]">
+      {/* Soft Background Shadows/Decor */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[60%] h-[60%] bg-blue-500/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[60%] h-[60%] bg-indigo-500/5 blur-[120px] rounded-full" />
+      </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="container max-w-[1400px] relative z-10">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="flex flex-col lg:flex-row items-start justify-between mb-20 gap-12"
+        >
+          <motion.div variants={itemVariants} className="max-w-xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-900/10 bg-white/50 mb-6">
+              <Settings size={14} className="text-slate-900" />
+              <span className="text-[11px] font-bold text-slate-900 uppercase tracking-wider">Our services</span>
+            </div>
+            <h2 className="font-display text-7xl font-normal text-slate-950 leading-[1.1] tracking-tight">
+              What we can <br />
+              do for you
+            </h2>
+          </motion.div>
+          
+          <motion.div variants={itemVariants} className="lg:pt-20 max-w-md">
+            <p className="text-lg text-slate-600 font-medium leading-relaxed mb-8">
+              From global flight bookings to luxury stays, we provide premium travel solutions tailored to your unique journey.
+            </p>
+            <Link to="/services" className="inline-flex items-center gap-3 bg-[#c9b197] hover:bg-[#b89f85] text-slate-950 px-8 py-4 rounded-full font-bold text-sm transition-all group">
+              See our services
+              <div className="w-8 h-8 rounded-full bg-slate-950 text-white flex items-center justify-center transition-transform group-hover:rotate-45">
+                <ArrowUpRight size={16} />
+              </div>
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        >
           {services.map((s, idx) => {
-            const Icon = icons[idx % icons.length]
+            const Icon = serviceIcons[idx]
             return (
-              <div key={s.title} className="card p-6">
-                <div className="flex items-start gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200 bg-white">
-                    <Icon className="text-brand-700" size={20} />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-900">{s.title}</div>
-                    <div className="mt-1 text-sm text-slate-600">{s.desc}</div>
+              <motion.div 
+                key={s.title} 
+                variants={itemVariants}
+                className="group relative h-[500px] overflow-hidden rounded-[40px] shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:shadow-indigo-500/10"
+              >
+                <img 
+                  src={s.image} 
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                  alt={s.title} 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                
+                <div className="absolute top-6 right-6">
+                  <div className="h-10 w-10 rounded-full bg-white/20 border border-white/30 flex items-center justify-center text-white opacity-60 group-hover:opacity-100 transition-opacity">
+                    <ArrowUpRight size={18} />
                   </div>
                 </div>
-              </div>
+
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                   <h3 className="text-xl font-bold text-white tracking-tight leading-snug">
+                     {s.title}
+                   </h3>
+                </div>
+              </motion.div>
             )
           })}
-        </div>
-
-        <div id="contact" className="mt-12 card p-6 sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h3 className="font-display text-3xl tracking-tight text-slate-900">Need help booking?</h3>
-              <p className="mt-2 text-slate-600">
-                Tell us your destination and dates. We’ll share the best options and a clear breakdown of inclusions.
-              </p>
-              <div className="mt-4 flex flex-col gap-2 text-sm text-slate-600">
-                <div>• Flights, hotels, transfers, visa & insurance</div>
-                <div>• One consultant for your entire trip</div>
-                <div>• WhatsApp support and quick revisions</div>
-              </div>
-            </div>
-
-            <form
-              className="grid gap-3"
-              onSubmit={(e) => {
-                e.preventDefault()
-                alert('Thanks! We will contact you shortly.')
-              }}
-            >
-              <label className="grid gap-1 text-sm">
-                <span className="text-slate-600">Name</span>
-                <input
-                  required
-                  placeholder="Your name"
-                  className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-slate-900 placeholder:text-slate-400 outline-none focus:border-brand-300"
-                />
-              </label>
-              <label className="grid gap-1 text-sm">
-                <span className="text-slate-600">Phone / WhatsApp</span>
-                <input
-                  required
-                  placeholder="+91 9XXXXXXXXX"
-                  className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-slate-900 placeholder:text-slate-400 outline-none focus:border-brand-300"
-                />
-              </label>
-              <label className="grid gap-1 text-sm">
-                <span className="text-slate-600">Message</span>
-                <textarea
-                  rows={3}
-                  placeholder="Destination, dates, travellers, budget..."
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none focus:border-brand-300"
-                />
-              </label>
-              <button className="btn-primary h-11" type="submit">
-                Request Callback
-              </button>
-              <p className="text-xs text-slate-500">
-                Demo form. Connect to your backend/CRM/WhatsApp API when ready.
-              </p>
-            </form>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

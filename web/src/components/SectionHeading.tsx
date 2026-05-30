@@ -16,20 +16,36 @@ export default function SectionHeading({
   className?: string
 }) {
   return (
-    <div className={cn(align === 'center' ? 'text-center' : 'text-left', className)}>
+    <div className={cn(align === 'center' ? 'text-center' : 'text-left', "mb-10", className)}>
       {eyebrow ? (
-        <p
-          className={cn(
-            'text-xs font-semibold uppercase tracking-[0.25em]',
-            tone === 'dark' ? 'text-brand-300/90' : 'text-brand-700',
-          )}
-        >
-          {eyebrow}
-        </p>
+        <div className={cn(
+          "flex items-center gap-3 mb-4",
+          align === 'center' ? "justify-center" : "justify-start"
+        )}>
+          {align === 'center' && <div className="h-px w-8 bg-brand-500/30" />}
+          <p
+            className={cn(
+              'text-[10px] font-bold uppercase tracking-[0.3em]',
+              tone === 'dark' ? 'text-brand-300' : 'text-brand-700',
+            )}
+          >
+            {eyebrow}
+          </p>
+          <div className="h-px w-8 bg-brand-500/30" />
+        </div>
       ) : null}
-      <h2 className={cn('section-title', tone === 'dark' ? 'text-white' : 'text-slate-900')}>{title}</h2>
+      <h2 className={cn(
+        'font-display text-4xl font-medium tracking-tight sm:text-5xl', 
+        tone === 'dark' ? 'text-white' : 'text-slate-900'
+      )}>
+        {title}
+      </h2>
       {subtitle ? (
-        <p className={cn('section-subtitle mx-auto', tone === 'dark' ? 'text-white/70' : 'text-slate-600')}>
+        <p className={cn(
+          'mt-4 max-w-2xl text-base font-medium leading-relaxed opacity-70',
+          align === 'center' ? 'mx-auto' : '',
+          tone === 'dark' ? 'text-white' : 'text-slate-600'
+        )}>
           {subtitle}
         </p>
       ) : null}
