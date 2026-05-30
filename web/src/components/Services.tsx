@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Plane, Hotel, ShieldCheck, Calendar, FileText, TrainFront, Coins, ArrowRight, ArrowUpRight, Settings } from 'lucide-react'
+import { Plane, Hotel, ShieldCheck, Calendar, FileText, TrainFront, Coins, ArrowUpRight, Settings } from 'lucide-react'
 import { services } from '../data/content'
 import { cn } from '../lib/cn'
 import { Link } from 'react-router-dom'
@@ -23,7 +23,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.2, 0.8, 0.2, 1]
+      ease: [0.2, 0.8, 0.2, 1] as any
     }
   }
 }
@@ -37,7 +37,7 @@ export default function Services() {
         <div className="absolute bottom-[-10%] left-[-5%] w-[60%] h-[60%] bg-indigo-500/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="container max-w-[1400px] relative z-10">
+      <div className="container max-w-[1400px] relative z-10 px-10">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -77,7 +77,6 @@ export default function Services() {
           className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {services.map((s, idx) => {
-            const Icon = serviceIcons[idx]
             return (
               <motion.div 
                 key={s.title} 

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Destinations from './components/Destinations'
@@ -15,28 +15,28 @@ const fadeUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }
+  transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] as any }
 }
 
 const slideInLeft = {
   initial: { opacity: 0, x: -60 },
   whileInView: { opacity: 1, x: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }
+  transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] as any }
 }
 
 const slideInRight = {
   initial: { opacity: 0, x: 60 },
   whileInView: { opacity: 1, x: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }
+  transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] as any }
 }
 
 const scaleUp = {
   initial: { opacity: 0, scale: 0.9 },
   whileInView: { opacity: 1, scale: 1 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }
+  transition: { duration: 0.6, ease: [0.34, 1.56, 0.64, 1] as any }
 }
 
 export default function App() {

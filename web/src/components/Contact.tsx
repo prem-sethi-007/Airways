@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Plane, Mail, Phone, MapPin, ArrowRight, Globe } from 'lucide-react'
+import { useEffect } from 'react'
 import { company } from '../data/content'
-import { cn } from '../lib/cn'
 
 export default function Contact() {
   useEffect(() => {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
 import { cn } from '../lib/cn'
 import { company } from '../data/content'
 import heroPlane from '../assets/hero-plane.jpg'

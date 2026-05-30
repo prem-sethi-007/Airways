@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, Star } from 'lucide-react'
-import { cn } from '../lib/cn'
-import { destinations } from '../data/content'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -21,7 +19,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.2, 0.8, 0.2, 1]
+      ease: [0.2, 0.8, 0.2, 1] as any
     }
   }
 }

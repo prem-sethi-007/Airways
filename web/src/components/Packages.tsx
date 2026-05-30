@@ -21,7 +21,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.2, 0.8, 0.2, 1]
+      ease: [0.2, 0.8, 0.2, 1] as any
     }
   }
 }
