@@ -37,11 +37,11 @@ export default function Services() {
         <div className="absolute bottom-[-10%] left-[-5%] w-[60%] h-[60%] bg-indigo-500/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="container max-w-[1400px] relative z-10 px-10">
+      <div className="container max-w-[1400px] relative z-10 px-6 lg:px-10">
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={containerVariants}
           className="flex flex-col lg:flex-row items-start justify-between mb-20 gap-12"
         >
@@ -50,7 +50,7 @@ export default function Services() {
               <Settings size={14} className="text-slate-900" />
               <span className="text-[11px] font-bold text-slate-900 uppercase tracking-wider">Our services</span>
             </div>
-            <h2 className="font-display text-7xl font-normal text-slate-950 leading-[1.1] tracking-tight">
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-normal text-slate-950 leading-[1.1] tracking-tight">
               What we can <br />
               do for you
             </h2>
@@ -74,14 +74,14 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
-          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          className="grid gap-4 md:gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {services.map((s, idx) => {
             return (
               <motion.div 
                 key={s.title} 
                 variants={itemVariants}
-                className="group relative h-[500px] overflow-hidden rounded-[40px] shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:shadow-indigo-500/10"
+                className="group relative h-[400px] md:h-[500px] overflow-hidden rounded-[30px] md:rounded-[40px] shadow-2xl transition-all duration-700 md:hover:-translate-y-2 hover:shadow-indigo-500/10"
               >
                 <img 
                   src={s.image} 
@@ -90,14 +90,14 @@ export default function Services() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
-                <div className="absolute top-6 right-6">
-                  <div className="h-10 w-10 rounded-full bg-white/20 border border-white/30 flex items-center justify-center text-white opacity-60 group-hover:opacity-100 transition-opacity">
-                    <ArrowUpRight size={18} />
+                <div className="absolute top-4 right-4 md:top-6 md:right-6">
+                  <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-white/20 border border-white/30 flex items-center justify-center text-white opacity-60 group-hover:opacity-100 transition-opacity">
+                    <ArrowUpRight size={16} className="md:w-[18px] md:h-[18px]" />
                   </div>
                 </div>
 
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                   <h3 className="text-xl font-bold text-white tracking-tight leading-snug">
+                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+                   <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-snug">
                      {s.title}
                    </h3>
                 </div>

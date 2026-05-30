@@ -88,7 +88,7 @@ export default function Destinations() {
               <span className="h-px w-8 bg-blue-600" />
               <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-blue-600">Top Picks</span>
             </div>
-            <h2 className="text-6xl lg:text-7xl font-bold text-slate-950 tracking-tight leading-[0.9]">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-950 tracking-tight leading-[0.9]">
               Most Popular <br />
               <span className="text-blue-600 italic">Destinations</span>
             </h2>
@@ -111,9 +111,9 @@ export default function Destinations() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={containerVariants}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-48"
+          className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-24 md:mb-48"
         >
           {cardData.map((d) => (
             <motion.div 
@@ -121,9 +121,9 @@ export default function Destinations() {
               variants={itemVariants}
               onMouseEnter={() => setActiveBg(d.image)}
               onClick={() => setActiveBg(d.image)}
-              className="group relative h-[550px] w-full perspective-1000 cursor-pointer"
+              className="group relative h-[450px] md:h-[550px] w-full perspective-1000 cursor-pointer"
             >
-              <div className="relative h-full w-full overflow-hidden rounded-[40px] shadow-2xl transition-all duration-700 group-hover:translate-y-[-10px] group-hover:shadow-blue-500/20">
+              <div className="relative h-full w-full overflow-hidden rounded-[30px] md:rounded-[40px] shadow-2xl transition-all duration-700 md:group-hover:translate-y-[-10px] group-hover:shadow-blue-500/20">
                 <img
                   src={d.image}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -132,21 +132,21 @@ export default function Destinations() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                 
                 {/* Floating Badge */}
-                <div className="absolute top-8 left-8">
-                   <div className="px-4 py-2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest shadow-2xl">
+                <div className="absolute top-6 left-6 md:top-8 md:left-8">
+                   <div className="px-3 py-1.5 md:px-4 md:py-2 rounded-xl md:rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-[9px] md:text-[10px] font-bold text-white uppercase tracking-widest shadow-2xl">
                     {d.country}
                   </div>
                 </div>
 
-                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                  <div className="mb-4 flex items-center justify-between">
-                    <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">{d.visited} explorers</span>
-                    <span className="text-white font-bold">{d.price}</span>
+                <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
+                  <div className="mb-3 md:mb-4 flex items-center justify-between">
+                    <span className="text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">{d.visited} explorers</span>
+                    <span className="text-white text-sm md:text-base font-bold">{d.price}</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-6 leading-tight group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 leading-tight group-hover:text-blue-400 transition-colors">
                     {d.name}
                   </h3>
-                  <button className="w-full py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-white font-bold text-xs uppercase tracking-widest opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-white hover:text-slate-950">
+                  <button className="w-full py-3 md:py-4 rounded-xl md:rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-white font-bold text-[10px] md:text-xs uppercase tracking-widest md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500 hover:bg-white hover:text-slate-950">
                     Book Experience
                   </button>
                 </div>

@@ -12,30 +12,30 @@ import Contact from './components/Contact'
 import ServicesPage from './components/ServicesPage'
 
 const fadeUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: true, amount: 0.05 },
   transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] as any }
 }
 
 const slideInLeft = {
-  initial: { opacity: 0, x: -60 },
+  initial: { opacity: 0, x: -30 },
   whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: true, amount: 0.05 },
   transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] as any }
 }
 
 const slideInRight = {
-  initial: { opacity: 0, x: 60 },
+  initial: { opacity: 0, x: 30 },
   whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: true, amount: 0.05 },
   transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] as any }
 }
 
 const scaleUp = {
-  initial: { opacity: 0, scale: 0.9 },
+  initial: { opacity: 0, scale: 0.95 },
   whileInView: { opacity: 1, scale: 1 },
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: true, amount: 0.05 },
   transition: { duration: 0.6, ease: [0.34, 1.56, 0.64, 1] as any }
 }
 

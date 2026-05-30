@@ -59,7 +59,7 @@ export default function Header() {
               <div className={cn("h-2 w-2 rounded-full", isDark ? "bg-slate-950/40" : "bg-white/40")} />
               <div className={cn("h-2 w-2 rounded-full", isDark ? "bg-slate-950" : "bg-white")} />
             </div>
-            <span className="font-display text-xl font-bold tracking-tight">{company.name}</span>
+            <span className="font-display text-lg md:text-xl font-bold tracking-tight whitespace-nowrap">{company.name}</span>
           </div>
         </Link>
 

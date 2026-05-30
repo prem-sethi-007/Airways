@@ -145,17 +145,16 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative mx-auto flex h-[550px] w-full max-w-[1400px] items-start justify-center z-10"
+          className="relative mx-auto flex h-[450px] md:h-[550px] w-full max-w-[1400px] items-start justify-center z-10"
         >
-          {/* Curved Path Area */}
-          <div className="relative flex h-[800px] w-[2000px] items-start justify-center mt-10">
+          {/* Curved Path Area - Responsive adjustments */}
+          <div className="relative flex h-[600px] md:h-[800px] w-[1200px] md:w-[2000px] items-start justify-center mt-6 md:mt-10">
             {sliderItems.map((item, i) => {
               const total = sliderItems.length
-              const angleStep = 80 / (total - 1) // 80 degrees total spread
-              const currentAngle = i * angleStep - 40 // -40 to 40 degrees
+              const angleStep = 80 / (total - 1)
+              const currentAngle = i * angleStep - 40
               const isActive = i === activeIndex
               
-              // Rotate based on active index
               const rotationAngle = currentAngle - (activeIndex * angleStep - 40)
 
               return (
@@ -167,14 +166,16 @@ export default function Hero() {
                   )}
                   style={{
                     transform: `rotate(${rotationAngle}deg) translateY(20px)`,
-                    transformOrigin: '50% 800px',
+                    transformOrigin: '50% 600px', // Adjusted for mobile
                   }}
                   onClick={() => setActiveIndex(i)}
                   onMouseEnter={() => setActiveIndex(i)}
                 >
                   <div className={cn(
-                    "group relative overflow-hidden rounded-[40px] border-4 transition-all duration-700 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.3)]",
-                    isActive ? "h-72 w-56 border-brand-500 scale-110" : "h-64 w-48 border-white hover:border-slate-100"
+                    "group relative overflow-hidden rounded-[30px] md:rounded-[40px] border-2 md:border-4 transition-all duration-700 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.3)]",
+                    isActive 
+                      ? "h-56 w-40 md:h-72 w-56 border-brand-500 scale-110" 
+                      : "h-48 w-32 md:h-64 w-48 border-white hover:border-slate-100"
                   )}>
                     <img
                       src={item.image}

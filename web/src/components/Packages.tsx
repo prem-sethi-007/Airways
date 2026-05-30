@@ -76,7 +76,7 @@ export default function Packages() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={containerVariants}
           className="flex flex-col lg:flex-row items-end justify-between mb-32 gap-12"
         >
@@ -85,7 +85,7 @@ export default function Packages() {
               <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">Curated Travel Guides</p>
             </div>
-            <h2 className="font-display text-7xl lg:text-8xl font-bold text-slate-950 tracking-tight leading-[0.85] mb-12">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-slate-950 tracking-tight leading-[0.85] mb-12">
               Explore the <br />
               <span className="text-blue-600 italic">World with Us</span>
             </h2>
@@ -113,9 +113,9 @@ export default function Packages() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={containerVariants}
-          className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-6 md:gap-10 sm:grid-cols-2 lg:grid-cols-4"
         >
           {cards.slice(0, 4).map((p, idx) => (
             <motion.div 
@@ -123,7 +123,7 @@ export default function Packages() {
               variants={itemVariants}
               onMouseEnter={() => setActiveBg(images[idx])}
               onClick={() => setActiveBg(images[idx])}
-              className="group relative h-[600px] overflow-hidden rounded-[50px] shadow-3xl bg-slate-900 transition-all duration-700 hover:translate-y-[-12px] cursor-pointer"
+              className="group relative h-[500px] md:h-[600px] overflow-hidden rounded-[30px] md:rounded-[50px] shadow-3xl bg-slate-900 transition-all duration-700 md:hover:translate-y-[-12px] cursor-pointer"
             >
               <img
                 src={images[idx]}
@@ -133,28 +133,28 @@ export default function Packages() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               
               {/* Dynamic Action Button */}
-              <div className="absolute top-8 right-8">
-                <button className="h-14 w-14 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white transition-all duration-500 hover:bg-blue-600 hover:border-blue-500 group-hover:rotate-12">
-                  <ArrowUpRight size={24} />
+              <div className="absolute top-6 right-6 md:top-8 md:right-8">
+                <button className="h-12 w-12 md:h-14 md:w-14 rounded-xl md:rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white transition-all duration-500 hover:bg-blue-600 hover:border-blue-500 group-hover:rotate-12">
+                  <ArrowUpRight size={20} className="md:w-6 md:h-6" />
                 </button>
               </div>
 
-              <div className="absolute inset-0 p-12 flex flex-col justify-end">
-                <div className="mb-6 flex gap-2">
-                  <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-[9px] font-black text-blue-300 uppercase tracking-widest">Premium</span>
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
+                <div className="mb-4 md:mb-6 flex gap-2">
+                  <span className="px-2 py-1 md:px-3 md:py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-[8px] md:text-[9px] font-black text-blue-300 uppercase tracking-widest">Premium</span>
                 </div>
-                <h3 className="text-4xl font-bold text-white mb-4 tracking-tight leading-none group-hover:text-blue-400 transition-colors">{p.title}</h3>
-                <p className="text-sm text-slate-300/80 mb-8 line-clamp-2 font-medium leading-relaxed">
+                <h3 className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-4 tracking-tight leading-none group-hover:text-blue-400 transition-colors">{p.title}</h3>
+                <p className="text-[10px] md:text-sm text-slate-300/80 mb-6 md:mb-8 line-clamp-2 font-medium leading-relaxed">
                   Immerse yourself in local culture and breathtaking landscapes with our luxury curated itinerary.
                 </p>
-                <div className="flex items-center justify-between pt-8 border-t border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                      <MapPin size={14} className="text-blue-400" />
+                <div className="flex items-center justify-between pt-6 md:pt-8 border-t border-white/10">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                      <MapPin size={12} className="text-blue-400 md:w-3.5 md:h-3.5" />
                     </div>
-                    <span className="text-[10px] font-bold text-white uppercase tracking-widest">Explore</span>
+                    <span className="text-[8px] md:text-[10px] font-bold text-white uppercase tracking-widest">Explore</span>
                   </div>
-                  <span className="text-lg font-bold text-white tracking-tight">{p.price}</span>
+                  <span className="text-base md:text-lg font-bold text-white tracking-tight">{p.price}</span>
                 </div>
               </div>
             </motion.div>
